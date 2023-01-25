@@ -6,3 +6,4 @@ Vedansh Parvathaneni (Back-End)
 John Dinh (Back-End)  
 Devan Ravani (Front-End)  
 Edwin Salcedo (Front-End)
+ 
