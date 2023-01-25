@@ -5,5 +5,5 @@ A website that lists recipes for different meals. You can input ingredients avai
 Vedansh Parvathaneni (Back-End)  
 John Dinh (Back-End)  
 Devan Ravani (Front-End)  
-Edwin Salcedo (Front-End)
+Edwin A. Salcedo (Front-End)
  
