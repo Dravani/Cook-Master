@@ -1,0 +1,15 @@
+.banner
+{
+    background-image: url('./../../assets/Images/bannerimg2.jpg');
+    height: 800px;
+    background-position:  center;
+    background-size: contain,cover;
+}
+.banner h1{
+    color:orange;
+    font-size: 80px;
+    font-weight: bold;
+    top: 30%;
+    left: 22.5%;
+    position: absolute;
+}
