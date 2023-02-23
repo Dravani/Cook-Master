@@ -1,4 +1,13 @@
-.login-form {
+.login-form
+{
     padding: 20px;
     padding-right: 20px;
+}
+
+.banner
+{
+    background-image: url('./../../assets/Images/bannerimg2.jpg');
+    height: 800px;
+    background-position:  center;
+    background-size: contain,cover;
 }
