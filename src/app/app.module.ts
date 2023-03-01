@@ -16,6 +16,9 @@ import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
     RecipesComponent,
     FooterComponent,
     LoginComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ import { MatToolbarModule } from "@angular/material/toolbar";
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatToolbarModule
+    MatIconModule,
+    FormsModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

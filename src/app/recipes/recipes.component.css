@@ -1,0 +1,19 @@
+.recipe-form
+{
+  padding:20px;
+  display: flex;
+  justify-content: center;
+}
+
+.banner
+{
+    background-image: url('./../../assets/Images/bannerimg2.jpg');
+    height: 800px;
+    background-position:  center;
+    background-size: contain,cover;
+}
+
+.user
+{
+    
+}
