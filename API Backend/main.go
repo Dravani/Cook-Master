@@ -4,31 +4,124 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 )
 
 func main() {
+	// var first string
+	// fmt.Println("what food recipes are you looking for?")
+	// // Taking input from user
+	// fmt.Scanln(&first)
 
-	//url := "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=pasta&cuisine=italian&excludeCuisine=greek&diet=vegetarian&intolerances=gluten&equipment=pan&includeIngredients=tomato%2Ccheese&excludeIngredients=eggs&type=main%20course&instructionsRequired=true&fillIngredients=false&addRecipeInformation=false&titleMatch=Crock%20Pot&maxReadyTime=20&ignorePantry=true&sort=calories&sortDirection=asc&minCarbs=10&maxCarbs=100&minProtein=10&maxProtein=100&minCalories=50&maxCalories=800&minFat=10&maxFat=100&minAlcohol=0&maxAlcohol=100&minCaffeine=0&maxCaffeine=100&minCopper=0&maxCopper=100&minCalcium=0&maxCalcium=100&minCholine=0&maxCholine=100&minCholesterol=0&maxCholesterol=100&minFluoride=0&maxFluoride=100&minSaturatedFat=0&maxSaturatedFat=100&minVitaminA=0&maxVitaminA=100&minVitaminC=0&maxVitaminC=100&minVitaminD=0&maxVitaminD=100&minVitaminE=0&maxVitaminE=100&minVitaminK=0&maxVitaminK=100&minVitaminB1=0&maxVitaminB1=100&minVitaminB2=0&maxVitaminB2=100&minVitaminB5=0&maxVitaminB5=100&minVitaminB3=0&maxVitaminB3=100&minVitaminB6=0&maxVitaminB6=100&minVitaminB12=0&maxVitaminB12=100&minFiber=0&maxFiber=100&minFolate=0&maxFolate=100&minFolicAcid=0&maxFolicAcid=100&minIodine=0&maxIodine=100&minIron=0&maxIron=100&minMagnesium=0&maxMagnesium=100&minManganese=0&maxManganese=100&minPhosphorus=0&maxPhosphorus=100&minPotassium=0&maxPotassium=100&minSelenium=0&maxSelenium=100&minSodium=0&maxSodium=100&minSugar=0&maxSugar=100&minZinc=0&maxZinc=100&offset=0&number=10&limitLicense=false&ranking=2"
+	// fmt.Println(output(first))
+	Test1()
+	Test2()
+	Test3()
+	Test4()
+	Test5()
+	Test6()
+}
 
-	//var first string
-	//fmt.Println("what food recipes are you looking for?")
-	// Taking input from user
-	//fmt.Scanln(&first)
+func output(first string) string {
+	for {
+		numeric := checkForNum(first)
+		if numeric {
+			return "enter a valid input"
+		} else {
+			fmt.Println("what food recipes are you looking for?")
+			// Taking input from user
+			fmt.Scanln(&first)
+			break
+		}
+	}
 
-	url := "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=soup&instructionsRequired=true&addRecipeInformation=true"
+	url := "https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=" + first
+
 	req, _ := http.NewRequest("GET", url, nil)
 
 	req.Header.Add("X-RapidAPI-Key", "034d289419msh0c3f1b2a45d6a4bp108a12jsn1f6bbb1643aa")
-	req.Header.Add("X-RapidAPI-Host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com")
+	req.Header.Add("X-RapidAPI-Host", "recipe-by-api-ninjas.p.rapidapi.com")
 
 	res, _ := http.DefaultClient.Do(req)
 
 	defer res.Body.Close()
 	body, _ := ioutil.ReadAll(res.Body)
 
-	//fmt.Println(res)
-	fmt.Println(string(body))
-
-
+	var remove = strings.ReplaceAll(string(body), "\"title\"", "\n\n\ntitle")
+	remove = strings.ReplaceAll(remove, "\"ingredients\"", "\n\ningredients")
+	remove = strings.ReplaceAll(remove, "\"servings\"", "\n\nservings")
+	remove = strings.ReplaceAll(remove, "\"instructions\"", "\n\ninstructions")
+	remove = strings.ReplaceAll(remove, "\"", "")
+	remove = strings.ReplaceAll(remove, "}, {", "")
+	remove = strings.ReplaceAll(remove, "[", "")
+	remove = strings.ReplaceAll(remove, "]", "")
+	remove = strings.ReplaceAll(remove, "{", "")
+	remove = strings.ReplaceAll(remove, "}", "")
+	return remove
 
 }
+
+func Test1() {
+	var got = output("apple 12")
+	var want = "enter a valid input"
+	if got != want {
+		fmt.Println("Test 1: Fail")
+	} else {
+		fmt.Println("Test 1: Pass")
+	}
+}
+func Test2() {
+	var got = output("7 cheese dip")
+	var want = "enter a valid input"
+	if got != want {
+		fmt.Println("Test 2: Fail")
+	} else {
+		fmt.Println("Test 2: Pass")
+	}
+}
+func Test3() {
+	var got = output("pie14")
+	var want = "enter a valid input"
+	if got != want {
+		fmt.Println("Test 3: Fail")
+	} else {
+		fmt.Println("Test 3: Pass")
+	}
+}
+func Test4() {
+	var got = output("f1sh")
+	var want = "enter a valid input"
+	if got != want {
+		fmt.Println("Test 4: Fail")
+	} else {
+		fmt.Println("Test 4: Pass")
+	}
+}
+func Test5() {
+	var got = output("289broccoli")
+	var want = "enter a valid input"
+	if got != want {
+		fmt.Println("Test 5: Fail")
+	} else {
+		fmt.Println("Test 5: Pass")
+	}
+}
+
+func Test6() {
+	var got = checkForNum("slicer14")
+	var want = true
+	if got == want {
+		fmt.Println("Test 6: Pass")
+	} else {
+		fmt.Println("Test 6: Fail")
+	}
+}
+
+func checkForNum(temp string) bool {
+	var num bool = false
+	for i := 0; i < len(temp); i++ {
+		num = true
+	}
+	return num
+}
+
