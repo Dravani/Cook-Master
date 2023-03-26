@@ -1,26 +1,47 @@
 <div fxLayoutAlign="center center" fxFlexFill class="banner">
     <mat-card fxFlex="30">
-        <mat-toolbar color="primary">Login Page</mat-toolbar>
+        <mat-toolbar color="primary">{{getStateText()}}</mat-toolbar>
+      <div *ngIf="isLoginState()">
         <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
             <mat-form-field>
-              <input matInput placeholder="Username" class="user">
+              <input matInput placeholder="Email" class="user">
             </mat-form-field>
             <mat-form-field>
                 <input matInput type="password" placeholder="Password">
             </mat-form-field>
             <button mat-raised-button type="submit" color="warn" >Login</button>
-            <div >
-              <input placeholder="Email"/>
-              <input placeholder="Password">
-              <input placeholder="Confirm Password">
-              <button mat-flat-button color="warn">Register</button>
+        </form>
+       </div>
+      <div *ngIf="isRegisterState()">
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+            <mat-form-field>
+                <input matInput placeholder="Email" class="user">
+              </mat-form-field>
+              <mat-form-field>
+                  <input matInput type="password" placeholder="Password">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput type="password" placeholder="Confirm Password">
+            </mat-form-field>
+              <button mat-raised-button type="submit" color="warn" >Register</button>
+            </form>
           </div>
-            <mat-card-actions align="end">
-              <button mat-raised-button type="submit" color="warn">Forgot Password</button>
-              <button mat-raised-button type="submit" color="warn">Create an Account</button>
-              <button mat-raised-button type="submit" color="warn" >Login</button>
+      <div *ngIf="isForgotPasswordState()">
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+          <mat-form-field>
+            <input matInput placeholder="Email" class="user">
+                </mat-form-field>
+            <button mat-raised-button type="submit" color="warn" >Reset</button>
+              </form>  
+            </div>
+              <mat-card-actions align="end">
+                <button mat-raised-button
+                     (click)="onForgotPasswordClick()">Forgot Password</button>
+                <button mat-raised-button
+                     (click)="onCreateAccountClick()">Sign Up</button>
+                <button mat-raised-button
+                     (click)="onLoginClick()">Login Page</button>
           </mat-card-actions>
-          </form>
     </mat-card>
 </div>
 
