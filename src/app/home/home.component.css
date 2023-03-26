@@ -3,7 +3,11 @@
     background-image: url('./../../assets/Images/bannerimg2.jpg');
     height: 800px;
     background-position:  center;
-    background-size: contain,cover;
+    background-size:cover;
+    text-align: center;
+    padding: 200px;
+    
+
 }
 .banner h1{
     color:orange;
@@ -11,5 +15,20 @@
     font-weight: bold;
     display: flex;
     justify-content: center;
-    padding: 240px;
+    height: 100px;
+   
+}
+.banner p{
+    color:white;
+    font-size: 60px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    
+}
+.banner button{
+    display: flex;
+    justify-content: center;
+    margin: auto;  
 }
