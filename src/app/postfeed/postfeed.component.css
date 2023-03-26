@@ -1,5 +1,17 @@
+
+.banner
+{
+    background-image: url('./../../assets/Images/bannerimg2.jpg');
+    height: 800px;
+    background-position:  center;
+    background-size:cover;
+    text-align: center;
+    
+
+}
+
 #post-button{
     position: fixed;
-    bottom: 2em;
-    right: 2em;
+    bottom: 1.5em;
+    right: 0;
 }

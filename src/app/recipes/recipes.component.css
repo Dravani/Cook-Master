@@ -10,13 +10,9 @@
     background-image: url('./../../assets/Images/bannerimg2.jpg');
     height: 800px;
     background-position:  center;
-    background-size: contain,cover;
+    background-size:cover;
 }
 
-.user
-{
-    
-}
 
 .testp {
   background-color: white;
