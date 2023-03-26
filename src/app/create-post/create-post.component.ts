@@ -44,7 +44,7 @@ export class CreatePostComponent {
               path: ["Posts", postId],
               data: {
                 comment: comment,
-                creatorId: this.auth.getAuth().currentUser.uid,
+                creatorId: this.auth.getAuth().currentUser!.uid,
                 imageUrl: downloadUrl,
                 timestamp: FirebaseTSApp.getFirestoreTimestamp()
               },
@@ -64,7 +64,7 @@ export class CreatePostComponent {
         path: ["Posts"],
         data: {
           comment: comment,
-          creatorId: this.auth.getAuth().currentUser.uid,
+          creatorId: this.auth.getAuth().currentUser!.uid,
           timestamp: FirebaseTSApp.getFirestoreTimestamp()
         },
         onComplete: (docId: any) => {
