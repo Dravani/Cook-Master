@@ -3,7 +3,7 @@
         <mat-card-title>Create Post</mat-card-title>
     </mat-card-header>
     <div>
-        <textarea  placeholder="Type Message..."></textarea>
+        <textarea #commentInput placeholder="Type Message..."></textarea>
     </div>
 
     <div *ngIf="selectedImageFile" 
@@ -20,7 +20,7 @@
                     <mat-icon>insert_photo</mat-icon>
             </label>
         </button>
-        <button mat-flat-button color="warn">Post</button>
+        <button (click)="onPostClick(commentInput)" color="warn">Post</button>
 
     </mat-card-actions>
 
