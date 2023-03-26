@@ -22,6 +22,9 @@ import { SearchComponent } from './search/search.component';
 import { MatDialogModule } from "@angular/material/dialog";
 import { PostfeedComponent } from './postfeed/postfeed.component';
 import { CreatePostComponent } from './create-post/create-post.component'
+import {FirebaseTSApp} from 'firebasets/firebasetsApp/firebaseTSApp';
+import { environment } from 'src/environment/environment';
+
 
 
 @NgModule({
@@ -54,4 +57,9 @@ import { CreatePostComponent } from './create-post/create-post.component'
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(){
+    FirebaseTSApp.init(environment.firebaseConfig)
+  }
+
+ }

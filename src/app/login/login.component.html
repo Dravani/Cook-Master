@@ -1,17 +1,26 @@
 <div fxLayoutAlign="center center" fxFlexFill class="banner">
-    <mat-card fxFlex="25">
+    <mat-card fxFlex="30">
         <mat-toolbar color="primary">Login Page</mat-toolbar>
         <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
             <mat-form-field>
               <input matInput placeholder="Username" class="user">
             </mat-form-field>
-          
             <mat-form-field>
                 <input matInput type="password" placeholder="Password">
             </mat-form-field>
-            <button mat-raised-button type="submit">Login</button>
+            <button mat-raised-button type="submit" color="warn" >Login</button>
+            <div >
+              <input placeholder="Email"/>
+              <input placeholder="Password">
+              <input placeholder="Confirm Password">
+              <button mat-flat-button color="warn">Register</button>
+          </div>
+            <mat-card-actions align="end">
+              <button mat-raised-button type="submit" color="warn">Forgot Password</button>
+              <button mat-raised-button type="submit" color="warn">Create an Account</button>
+              <button mat-raised-button type="submit" color="warn" >Login</button>
+          </mat-card-actions>
           </form>
-
     </mat-card>
 </div>
 
