@@ -19,6 +19,10 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import { PostfeedComponent } from './postfeed/postfeed.component';
+import { CreatePostComponent } from './create-post/create-post.component'
+
 
 @NgModule({
   declarations: [
@@ -29,6 +33,8 @@ import { SearchComponent } from './search/search.component';
     FooterComponent,
     LoginComponent,
     SearchComponent,
+    PostfeedComponent,
+    CreatePostComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +49,7 @@ import { SearchComponent } from './search/search.component';
     MatIconModule,
     FormsModule,
     MatToolbarModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,10 +5,12 @@ import { HomeComponent } from './home/home.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
+import { PostfeedComponent } from './postfeed/postfeed.component';
 
 const routes: Routes = [
 {path: '', component:HomeComponent},
 {path: 'recipes', component:RecipesComponent},
+{path: "postfeed", component: PostfeedComponent},
 {path: 'login', component:LoginComponent}
 ];
 
