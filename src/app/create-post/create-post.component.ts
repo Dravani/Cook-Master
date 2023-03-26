@@ -21,6 +21,7 @@ export class CreatePostComponent {
 
   onPostClick(commentInput : HTMLTextAreaElement) {
     let comment = commentInput.value;
+    if(comment.length <= 0) return;
     if(this.selectedImageFile) {
       this.uploadImagePost(comment);
     }
