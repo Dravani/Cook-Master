@@ -25,6 +25,8 @@ import { CreatePostComponent } from './create-post/create-post.component'
 import {FirebaseTSApp} from 'firebasets/firebasetsApp/firebaseTSApp';
 import { environment } from 'src/environment/environment';
 import { EmailVerificationComponent } from './email-verification/email-verification.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PostComponent } from './post/post.component';
 
 
 
@@ -40,6 +42,8 @@ import { EmailVerificationComponent } from './email-verification/email-verificat
     PostfeedComponent,
     CreatePostComponent,
     EmailVerificationComponent,
+    ProfileComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,

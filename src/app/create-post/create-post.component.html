@@ -5,23 +5,17 @@
     <div>
         <textarea #commentInput placeholder="Type Message..."></textarea>
     </div>
-
-    <div *ngIf="selectedImageFile" 
-        id="post-preview">
+    <div *ngIf="selectedImageFile" id="post-preview">
         <img id="post-preview-image"/>
     </div>
-
-
     <mat-card-actions align="end">
         <button mat-button color="warn">
             <label for="photo-upload">
-                    <input #photoSelector (change)="onPhotoSelected(photoSelector)"
-                        id="photo-upload" type="file" accept="image/*"/>
-                    <mat-icon>insert_photo</mat-icon>
+                <input #photoSelector (change)="onPhotoSelected(photoSelector)"
+                id="photo-upload" type="file" accept="image/*"/>
+                <mat-icon>insert_photo</mat-icon>
             </label>
         </button>
         <button (click)="onPostClick(commentInput)" color="warn">Post</button>
-
     </mat-card-actions>
-
 </mat-card>

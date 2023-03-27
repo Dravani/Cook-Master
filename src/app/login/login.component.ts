@@ -40,7 +40,7 @@ export class LoginComponent {
           email: email,
           password: password,
           onComplete: (uc) => {
-            alert("Logged In");
+
           },
           onFail: (err) => {
             alert(err);
