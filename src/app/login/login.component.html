@@ -4,34 +4,43 @@
       <div *ngIf="isLoginState()">
         <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
             <mat-form-field>
-              <input matInput placeholder="Email" class="user">
+              <input matInput #loginEmail placeholder="Email" class="user">
             </mat-form-field>
             <mat-form-field>
-                <input matInput type="password" placeholder="Password">
+                <input matInput type="password" #loginPassword placeholder="Password">
             </mat-form-field>
-            <button mat-raised-button type="submit" color="warn" >Login</button>
+            <button 
+              (click)="onLogin(loginEmail, loginPassword)"
+            mat-raised-button type="submit" color="warn" >Login</button>
         </form>
        </div>
       <div *ngIf="isRegisterState()">
         <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
             <mat-form-field>
-                <input matInput placeholder="Email" class="user">
+                <input matInput #registerEmail placeholder="Email" class="user">
               </mat-form-field>
               <mat-form-field>
-                  <input matInput type="password" placeholder="Password">
+                  <input matInput type="password" #registerPassword placeholder="Password">
               </mat-form-field>
               <mat-form-field>
-                <input matInput type="password" placeholder="Confirm Password">
+                <input matInput type="password" #registerConfirmPassword placeholder="Confirm Password">
             </mat-form-field>
-              <button mat-raised-button type="submit" color="warn" >Register</button>
+              <button 
+                (click)="onRegisterClick(
+                  registerEmail,
+                  registerPassword,
+                  registerConfirmPassword
+                )"
+                mat-raised-button type="submit" color="warn" >Register</button>
             </form>
           </div>
       <div *ngIf="isForgotPasswordState()">
         <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
           <mat-form-field>
-            <input matInput placeholder="Email" class="user">
+            <input matInput #resetEmail placeholder="Email" class="user">
                 </mat-form-field>
-            <button mat-raised-button type="submit" color="warn" >Reset</button>
+            <button (click)="onResetClick(resetEmail)"
+             mat-raised-button type="submit" color="warn" >Reset</button>
               </form>  
             </div>
               <mat-card-actions align="end">
