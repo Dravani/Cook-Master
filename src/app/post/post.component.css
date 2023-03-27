@@ -2,3 +2,11 @@
     margin-left: .5em;
     cursor: pointer;
 }
+
+.spacingcard {
+    padding: 32px;
+}
+
+.cardwide {
+    width: 500px;
+}
