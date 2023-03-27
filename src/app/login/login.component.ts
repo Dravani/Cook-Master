@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +9,7 @@ import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 export class LoginComponent {
   state = AuthenticatorCompState.LOGIN;
   firebasetsAuth: FirebaseTSAuth;
-  constructor(){
+  constructor(private router: Router){
     this.firebasetsAuth = new FirebaseTSAuth();
   }
   
@@ -40,7 +40,7 @@ export class LoginComponent {
           email: email,
           password: password,
           onComplete: (uc) => {
-
+            this.router.navigate(["postfeed"]);
           },
           onFail: (err) => {
             alert(err);
