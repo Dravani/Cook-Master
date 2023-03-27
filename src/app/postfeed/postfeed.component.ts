@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CreatePostComponent } from '../create-post/create-post.component';
 import { LoginComponent } from '../login/login.component';
 import { FirebaseTSFirestore, Limit, OrderBy } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 @Component({
   selector: 'app-postfeed',
   templateUrl: './postfeed.component.html',
@@ -11,6 +12,7 @@ import { FirebaseTSFirestore, Limit, OrderBy } from 'firebasets/firebasetsFirest
 export class PostfeedComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
   posts: PostData [] = [];
+  auth = new FirebaseTSAuth();
   constructor(private dialog: MatDialog){}
 
   ngOnInit(): void {
@@ -41,6 +43,10 @@ export class PostfeedComponent implements OnInit {
         }
       }
     );
+  }
+
+  loggedIn() {
+    return this.auth.isSignedIn();
   }
 
 }
