@@ -1,9 +1,112 @@
+<!-- <form class="form">
+    <article>
+        <h2>Enter Ingredient to Get Nutrient Information!</h2>
 
-<form class="form">
+        <label for="tbuser">Type Here:</label>
+        <input type="text" id="tbuser" placeholder="Ex: chicken">
+        <input type="button" id="btn1" value="Submit">
+        <p class="output" id="output1"></p>
+    </article>
+
+    <script>
+        const text1 = document.getElementById('tbuser');
+        const btn1 = document.getElementById('btn1');
+        const out1 = document.getElementById('output1');
+
+        function fun1() {
+            btn1.innerHTML = text1.value;
+        }
+        btn1.addEventListener('click',fun1);
+    </script>
+</form> -->
+
+<!-- <form class="form">
     <mat-form-field class="full-width"> 
         <span matPrefix> </span>
-        <input type="tel" matInput placeholder="Search" name= "search" [(ngModel)]= "search">
+        <input type="tel" matInput placeholder="Enter Ingredient" name= "search" [(ngModel)]= "search">
         <button matSuffix mat-button><mat-icon >search</mat-icon></button>
     </mat-form-field>
     <br/>
-</form>
+</form> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <article>
+        <h2>Enter Ingredient to Get Nutrient Information!</h2>
+
+        <label for="tbuser">Type Here:</label>
+        <input type="text" id="tbuser" placeholder="Ex: chicken">
+        <input type="button" id="btn1" value="Submit">
+        <p class="output" id="output1"></p>
+    </article>
+
+    <script>
+        const text1 = document.getElementById('tbuser');
+        const btn1 = document.getElementById('btn1');
+        const out1 = document.getElementById('output1');
+
+        function out() {
+            out1.innerHTML = text1.value;
+        }
+        btn1.addEventListener('click',out);
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RapidApi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-10">
+    <h1 class="text-2xl font-bold pb-2">Enter Ingredient to Get Nutritional Information</h1>
+    <input class="border-2 px-2 rounded-md" type="text" placeholder="Ex. Chicken">
+    <button class="bg-green-600 text-white px-2 py-1 rounded-lg">Search</button>
+
+    <div class="result"></div>
+    <script>const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '04a7b63742mshe31a0e0ebbb49f8p1cd7ebjsn812e3735989f',
+            'X-RapidAPI-Host': 'youtube-search-results.p.rapidapi.com'
+        }
+    };
+    
+    const userInput = document.querySelector('input');
+    const btn = document.querySelector('button');
+    
+    let params = ''
+    const callParams = () => {
+        params = userInput.value
+        fetch(`https://youtube-search-results.p.rapidapi.com/youtube-search/?q=${params}`, options)
+            .then(response => response.json())
+            .then(data => {
+                let output = '';
+                data.items.map(item => {
+                    output += `
+                        <h1>${item.title}</h1>
+                        <li>
+                        <a href="${item.url}">${item.url}</a>
+                        </li>
+                        `;
+                      
+                })
+                document.querySelector('.result').innerHTML = output;
+            })
+            .catch(err => console.error(err));
+        userInput.value = '';
+    }
+    
+    
+    btn.addEventListener('click', callParams)</script>
+</body>
+</html>
