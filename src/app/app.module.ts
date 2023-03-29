@@ -27,6 +27,7 @@ import { environment } from 'src/environment/environment';
 import { EmailVerificationComponent } from './email-verification/email-verification.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PostComponent } from './post/post.component';
+import { UserprofilepageComponent } from './userprofilepage/userprofilepage.component';
 
 
 
@@ -44,6 +45,7 @@ import { PostComponent } from './post/post.component';
     EmailVerificationComponent,
     ProfileComponent,
     PostComponent,
+    UserprofilepageComponent,
   ],
   imports: [
     BrowserModule,

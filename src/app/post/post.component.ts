@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PostData } from '../postfeed/postfeed.component';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -11,6 +12,8 @@ export class PostComponent implements OnInit {
   creatorName!: string;
   creatorDescription!: string;
   firestore = new FirebaseTSFirestore();
+  constructor(private dialog: MatDialog){}
+
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -30,4 +33,15 @@ export class PostComponent implements OnInit {
       }
     );
   }
+  get CreatorName(){
+    return this.creatorName;
+  }
+  get CreatorDes(){
+    return this.creatorDescription;
+  }
+
+
 }
+
+;
+
