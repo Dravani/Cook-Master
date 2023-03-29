@@ -1,0 +1,7 @@
+For sprint 2 we added a login page, added search bar, have multiple pages, parsed the data retreived from the API for both nutrition and recipes, checked for valid input from the user.
+
+For the end to end unit testing it starts on the homepage and scans for the string "Login". It will then click on the Login page where it goes to login page. The test then checks if it is on the correct url by checking if it includes "/login". Once it passes that it types into the username field "fakeuser" then checks if fakeuser is what was actually typed in. For the unit test we tested the login form by making sure we can type into it.
+
+For backend we have unit tests for both nutrition API and recipe API to see if the code was reading inputs correctly. If there is a number in the input the code should output "enter a valid input" but if the input is valid then the relevent data is displayed. Our unit tests check if this process is happening properly.
+
+For both API we use, the host is rapidapi and we use a unique id to access the host linked with our rapidapi account. Then we have a url that queries the data from the API and outputs the relevent details. To modify the querie you need to modify the url where the keyword exists with new keywords. The data is retrieved through a http request.
