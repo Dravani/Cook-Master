@@ -27,7 +27,10 @@ import { environment } from 'src/environment/environment';
 import { EmailVerificationComponent } from './email-verification/email-verification.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PostComponent } from './post/post.component';
+
 import { UserprofilepageComponent } from './userprofilepage/userprofilepage.component';
+
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
 
@@ -60,7 +63,8 @@ import { UserprofilepageComponent } from './userprofilepage/userprofilepage.comp
     MatIconModule,
     FormsModule,
     MatToolbarModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

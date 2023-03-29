@@ -1,6 +1,10 @@
 .action-item {
     margin-left: .5em;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+.action-item:hover {
+    transform: scale(1.2);
 }
 
 .spacingcard {
@@ -9,4 +13,12 @@
 
 .cardwide {
     width: 500px;
+}
+
+.imgpost {
+    max-height: 400px;
+    min-height: 325px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: .5em;
 }
