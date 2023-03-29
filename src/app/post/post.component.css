@@ -1,6 +1,10 @@
 .action-item {
     margin-left: .5em;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+.action-item:hover {
+    transform: scale(1.2);
 }
 
 .spacingcard {
