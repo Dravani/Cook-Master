@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"regexp"
 	"strings"
 )
 
@@ -13,28 +14,34 @@ func main() {
 	// // Taking input from user
 	// fmt.Scanln(&first)
 
-	// fmt.Println(output(first))
+	//fmt.Println(output(first))
+
+	// essay := output(first)
+	// paragraphs := splitIntoParagraphs(essay)
+	// str := ""
+
+	// for i := range paragraphs {
+	// 	str = str + (paragraphs[i])
+	// 	str = str + "\n"
+	// 	if i%4 == 0 {
+	// 		str = str + "\n"
+	// 	}
+	// }
+	// fmt.Println(str)
 	Test1()
 	Test2()
 	Test3()
 	Test4()
 	Test5()
 	Test6()
+	Test7()
 }
 
 func output(first string) string {
-	for {
-		numeric := checkForNum(first)
-		if numeric {
-			return "enter a valid input"
-		} else {
-			fmt.Println("what food recipes are you looking for?")
-			// Taking input from user
-			fmt.Scanln(&first)
-			break
-		}
+	numeric := regexp.MustCompile(`\d`).MatchString(first)
+	if numeric {
+		return "enter a valid input"
 	}
-
 	url := "https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=" + first
 
 	req, _ := http.NewRequest("GET", url, nil)
@@ -47,7 +54,7 @@ func output(first string) string {
 	defer res.Body.Close()
 	body, _ := ioutil.ReadAll(res.Body)
 
-	var remove = strings.ReplaceAll(string(body), "\"title\"", "\n\n\ntitle")
+	var remove = strings.ReplaceAll(string(body), "\"title\"", "\n\ntitle")
 	remove = strings.ReplaceAll(remove, "\"ingredients\"", "\n\ningredients")
 	remove = strings.ReplaceAll(remove, "\"servings\"", "\n\nservings")
 	remove = strings.ReplaceAll(remove, "\"instructions\"", "\n\ninstructions")
@@ -57,6 +64,7 @@ func output(first string) string {
 	remove = strings.ReplaceAll(remove, "]", "")
 	remove = strings.ReplaceAll(remove, "{", "")
 	remove = strings.ReplaceAll(remove, "}", "")
+	remove = strings.ReplaceAll(remove, ",", "")
 	return remove
 
 }
@@ -108,7 +116,7 @@ func Test5() {
 }
 
 func Test6() {
-	var got = checkForNum("slicer14")
+	var got = checkForNum("slicer 14")
 	var want = true
 	if got == want {
 		fmt.Println("Test 6: Pass")
@@ -117,11 +125,38 @@ func Test6() {
 	}
 }
 
-func checkForNum(temp string) bool {
-	var num bool = false
-	for i := 0; i < len(temp); i++ {
-		num = true
+func Test7() {
+	block := `This is a
+
+multiline
+
+string.`
+	got := splitBlock(block)
+
+	var want = 3
+
+	if len(got) == want {
+		fmt.Println("Test 7: Pass")
+	} else {
+		fmt.Println("Test 7: Fail")
 	}
-	return num
 }
 
+func checkForNum(str string) bool {
+	match, error := regexp.MatchString("[0-9]+", str)
+	if error != nil {
+		fmt.Println("Error:", error)
+		return false
+	}
+	return match
+}
+
+func splitBlock(block string) []string {
+	par := strings.Split(block, "\n\n")
+
+	for i := range par {
+		par[i] = strings.TrimSpace(par[i])
+	}
+
+	return par
+}
