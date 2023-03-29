@@ -10,3 +10,11 @@
 .cardwide {
     width: 500px;
 }
+
+.imgpost {
+    max-height: 400px;
+    min-height: 325px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: .5em;
+}
