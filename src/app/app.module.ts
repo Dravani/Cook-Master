@@ -27,6 +27,7 @@ import { environment } from 'src/environment/environment';
 import { EmailVerificationComponent } from './email-verification/email-verification.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PostComponent } from './post/post.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
 
@@ -58,7 +59,8 @@ import { PostComponent } from './post/post.component';
     MatIconModule,
     FormsModule,
     MatToolbarModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
