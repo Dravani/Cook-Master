@@ -5,9 +5,10 @@ FirebaseTSApp.init(environment.firebaseConfig)
 
 describe('EmailVerificationComponent', () => {
 
-  it('Types in username field', () => {
+  it('shows the amil verify screen', () => {
     cy.mount(EmailVerificationComponent)
-
     
+    cy.get('h1').contains('Your Email is not verified')
+    cy.get('button').contains('Resend Verification Email')
   })
 })

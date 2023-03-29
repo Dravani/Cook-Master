@@ -21,5 +21,7 @@ describe('My First Test', () => {
     cy.get('#post-button > .mat-mdc-button-touch-target').click()
 
     //cy.get('.mat-mdc-card-actions > .mdc-button > .mat-mdc-button-touch-target').click()
+    //cy.get('div[_ngcontent-adb-c152=""] > textarea').click().type('Posting works!')
+    //cy.get('div[_ngcontent-fqv-c152=""] > textarea').click().type('Posting works!')
   })
 })

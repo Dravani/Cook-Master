@@ -11,7 +11,10 @@ describe('CreatePostComponent', () => {
       providers: [{provide: MatDialogRef, useValue:{}}],
       imports: [MatDialogModule],
     })
+    cy.get('textarea').type('test typing into the createPost component')
+    cy.get('textarea').should('have.value', 'test typing into the createPost component')
 
-    
+    cy.get('mat-icon').should('be.visible')
+    cy.get('mat-card-actions > :nth-child(2)').should('be.visible')
   })
 })
