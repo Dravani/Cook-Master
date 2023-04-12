@@ -31,6 +31,7 @@ import { PostComponent } from './post/post.component';
 import { UserprofilepageComponent } from './userprofilepage/userprofilepage.component';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { ReplyComponent } from './reply/reply.component';
 
 
 
@@ -49,6 +50,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     ProfileComponent,
     PostComponent,
     UserprofilepageComponent,
+    ReplyComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@
     <img class="imgpost" mat-card-image src="{{postData?.imageUrl}}">
 
     <mat-card-actions>
-        <mat-icon class="action-item" color="warn">chat_bubble_outline</mat-icon>
+        <mat-icon (click)="onReplyClick()" class="action-item" color="warn">chat_bubble_outline</mat-icon>
         <mat-icon class="action-item" color="warn">favorite_border</mat-icon>
         <mat-icon class="action-item" color="warn">save</mat-icon>
     </mat-card-actions>

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { PostData } from '../postfeed/postfeed.component';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { MatDialog } from '@angular/material/dialog';
+import { ReplyComponent } from '../reply/reply.component';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -19,6 +20,10 @@ export class PostComponent implements OnInit {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.getCreatorInfo();
+  }
+
+  onReplyClick() {
+    this.dialog.open(ReplyComponent, {data: this.postData.postId});
   }
 
   getCreatorInfo() {

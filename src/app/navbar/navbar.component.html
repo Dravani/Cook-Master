@@ -10,7 +10,7 @@
         <ul class="navbar-nav ms-auto">
 
           <li>
-            <a *ngIf="loggedIn() && userHasProfile" class="nav-link" routerLink="userprofile" routerLinkActive="active-link">Hello, {{userDocument.publicName}}</a>
+            <a *ngIf="loggedIn() && userHasProfile" class="nav-link" routerLink="userprofile" routerLinkActive="active-link">Hello, {{getUsername()}}</a>
           </li>
           
           <li class="nav-item">
