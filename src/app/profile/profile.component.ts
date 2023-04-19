@@ -19,13 +19,18 @@ export class ProfileComponent {
     let name = nameInput.value;
     let description = descriptionInput.value;
     let likeCount = 0;
+    let postCount = 0;
+    let commentCount = 0;
     this.firestore.create(
       {
         path: ["Users", this.auth.getAuth().currentUser?.uid!],
         data: {
           publicName: name,
           description: description,
-          userlikeCount: likeCount
+          userlikeCount: likeCount,
+          userPostCount: postCount,
+          userCommentCount: commentCount
+
         },
         onComplete: (docId) => {
           alert("Profile Created!");

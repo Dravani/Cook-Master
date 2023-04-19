@@ -33,6 +33,7 @@ import { UserprofilepageComponent } from './userprofilepage/userprofilepage.comp
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ReplyComponent } from './reply/reply.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { SpoonComponent } from './spoon/spoon.component';
 
 
 
@@ -53,6 +54,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
     UserprofilepageComponent,
     ReplyComponent,
     FeedbackComponent,
+    SpoonComponent,
   ],
   imports: [
     BrowserModule,
