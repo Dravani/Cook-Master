@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreatePostComponent } from '../create-post/create-post.component';
-import { LoginComponent } from '../login/login.component';
 import { FirebaseTSFirestore, Limit, OrderBy } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
+import { FeedbackComponent } from '../feedback/feedback.component';
 @Component({
   selector: 'app-postfeed',
   templateUrl: './postfeed.component.html',
@@ -23,6 +23,9 @@ export class PostfeedComponent implements OnInit {
 
   onCreatePostClick(){
     this.dialog.open(CreatePostComponent);
+  }
+  onFeedbackClick(){
+    this.dialog.open(FeedbackComponent);
   }
 
   getPosts() {

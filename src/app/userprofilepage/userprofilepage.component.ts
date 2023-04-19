@@ -1,8 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import { Component } from '@angular/core';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
-import { PostData } from '../postfeed/postfeed.component';
-
+import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 
 @Component({
   selector: 'app-userprofilepage',
@@ -10,36 +8,45 @@ import { PostData } from '../postfeed/postfeed.component';
   styleUrls: ['./userprofilepage.component.css']
 })
 export class UserprofilepageComponent {
-  @Input() postData!: PostData;
-  firestore: FirebaseTSFirestore;
-  auth: FirebaseTSAuth;
-  creatorName!: string;
-  creatorDescription!: string;
+  auth = new FirebaseTSAuth();
+  firestore = new FirebaseTSFirestore();
+  userHasProfile = true;
+  private static userDocument: UserDocument;//private static doesnt allow !
+
 
   constructor() {
-    this.firestore = new FirebaseTSFirestore();
-    this.auth = new FirebaseTSAuth();
+    this.getUserProfile();
   }
 
-  getCreatorInfo() {
-    this.firestore.getDocument(
+  public static getUserDocument(){
+    return UserprofilepageComponent.userDocument;
+  }
+  getUsername() {
+    try {
+      return UserprofilepageComponent.userDocument.publicName;
+    } catch (err) {
+
+    }
+  }
+  getUserProfile() {
+    this.firestore.listenToDocument(
       {
-        path: ["Users", this.postData.creatorId],
-        onComplete: result => {
-          let userDocument = result.data();
-          this.creatorName = userDocument?.['publicName'];
-          this.creatorDescription = userDocument?.['description'];
+        name: "Getting Document",
+        path: ["Users", this.auth.getAuth().currentUser?.uid!
+      ],
+        onUpdate: (result) => {
+          UserprofilepageComponent.userDocument = <UserDocument>result.data();
+          UserprofilepageComponent.userDocument.userId = this.auth.getAuth().currentUser?.uid!;
+          // UserprofilepageComponent.userDocument.description = this.auth.getAuth().currentUser?.d
         }
       }
     );
   }
-
-  getCreatorName(){
-    return this.creatorName;
-  }
-  getCreatorDescription(){
-    return this.creatorDescription;
-  }
 }
-
+;
+export interface UserDocument {
+  publicName: string;
+  description: string;
+  userId: string;
+}
 

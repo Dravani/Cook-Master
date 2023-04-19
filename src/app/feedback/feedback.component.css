@@ -1,0 +1,23 @@
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 1200px;
+    width: 280px;
+  }
+  
+  textarea {
+    font-size: 1.5em;
+    padding: 1em;
+    resize: none;
+    width: 450px;
+    min-height: 200px;
+    border: none;
+    outline: none;
+}
+  

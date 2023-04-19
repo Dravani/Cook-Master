@@ -6,3 +6,6 @@
 
 <button *ngIf="loggedIn()" (click) = "onCreatePostClick()" 
 mat-fab color = "warn" id="post-button"><mat-icon>add</mat-icon></button>
+
+<button *ngIf="loggedIn()" (click) = "onFeedbackClick()" 
+mat-raised-button color = "primary" id="feedback-button">Feedback</button>

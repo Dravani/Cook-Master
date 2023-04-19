@@ -1,0 +1,11 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Give Feedback</mat-card-title>
+    </mat-card-header>
+    <div>
+        <textarea #feedbackInput placeholder="Type Here..."></textarea>
+    </div>
+    <mat-card-actions>
+        <button (click)="onSubmitClick(feedbackInput)" color="warn">Submit</button>
+    </mat-card-actions>
+</mat-card>
