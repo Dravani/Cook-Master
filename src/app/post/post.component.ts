@@ -15,6 +15,8 @@ export class PostComponent implements OnInit {
   @Input() postData!: PostData;
   creatorName!: string;
   creatorDescription!: string;
+  color!: string;
+  like: boolean = false;
   firestore = new FirebaseTSFirestore();
   constructor(private dialog: MatDialog){
   
@@ -29,6 +31,17 @@ export class PostComponent implements OnInit {
 
   onReplyClick() {
     this.dialog.open(ReplyComponent, {data: this.postData.postId});
+  }
+  
+  onLikeClick(){
+    this.like = !this.like;
+    if(this.like == true){
+      this.color = "accent"
+
+    }
+    else{
+      this.color = "primary"
+    }
   }
 
   getCreatorInfo() {
