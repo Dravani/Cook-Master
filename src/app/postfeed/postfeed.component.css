@@ -19,3 +19,9 @@
     margin-right: auto;
     padding: 32px;
 }
+
+#feedback-button{
+    position: fixed;
+    bottom: 1.5em;
+    left: 100px;
+}
