@@ -1,6 +1,6 @@
 # Cook-Master
 
-A website that lists recipes for different meals. You can input ingredients available to you to recieve recipes that you can make with them. You can also make an account to add you own recipes, rate other recipes, add pictures of recipes you've made, and comment on other recipes. Other constraint include meals that are safe to eat if you have certain allergies. 
+Cook Master is a social media website that allows you to share your recipes and meals with the cook master community. You can make an account to add your own recipes, rate other recipes, add pictures of recipes you've made, and comment/like on other recipes. You can input ingredients available to you and it will provide Youtube videos for you to make meals with what is available.
 
 Vedansh Parvathaneni (Back-End)  
 John Dinh (Back-End)  
