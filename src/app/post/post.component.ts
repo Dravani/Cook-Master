@@ -8,12 +8,17 @@ import { ReplyComponent } from '../reply/reply.component';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css']
 })
+
+
+
 export class PostComponent implements OnInit {
   @Input() postData!: PostData;
   creatorName!: string;
   creatorDescription!: string;
   firestore = new FirebaseTSFirestore();
-  constructor(private dialog: MatDialog){}
+  constructor(private dialog: MatDialog){
+  
+  }
 
 
   ngOnInit(): void {
@@ -45,8 +50,7 @@ export class PostComponent implements OnInit {
     return this.creatorDescription;
   }
 
+};
 
-}
 
-;
 
