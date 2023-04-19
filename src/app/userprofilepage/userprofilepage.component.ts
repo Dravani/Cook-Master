@@ -40,6 +40,13 @@ export class UserprofilepageComponent implements OnInit {
 
     }
   }
+  getLikeCount() {
+    try {
+      return UserprofilepageComponent.userDocument.likeCount;
+    } catch (err) {
+
+    }
+  }
   getUserProfile() {
     this.firestore.listenToDocument(
       {
@@ -80,6 +87,7 @@ export interface UserDocument {
   publicName: string;
   description: string;
   userId: string;
+  likeCount: number;
 }
 export interface PostData {
   comment: string;
