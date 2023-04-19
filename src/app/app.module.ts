@@ -28,6 +28,11 @@ import { EmailVerificationComponent } from './email-verification/email-verificat
 import { ProfileComponent } from './profile/profile.component';
 import { PostComponent } from './post/post.component';
 
+import { UserprofilepageComponent } from './userprofilepage/userprofilepage.component';
+
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { ReplyComponent } from './reply/reply.component';
+
 
 
 @NgModule({
@@ -44,6 +49,8 @@ import { PostComponent } from './post/post.component';
     EmailVerificationComponent,
     ProfileComponent,
     PostComponent,
+    UserprofilepageComponent,
+    ReplyComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +65,8 @@ import { PostComponent } from './post/post.component';
     MatIconModule,
     FormsModule,
     MatToolbarModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

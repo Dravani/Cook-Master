@@ -12,7 +12,7 @@ export class NavbarComponent {
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   userHasProfile = true;
-  userDocument!: UserDocument;
+  private static userDocument: UserDocument;//private static doesnt allow !
 
   constructor(private router: Router) {
     this.auth.listenToSignInStateChanges(
@@ -24,6 +24,7 @@ export class NavbarComponent {
             },
             whenSignedOut: user => {
               alert("Logged Out");
+              NavbarComponent.userDocument = null!;
             },
             whenSignedInAndEmailNotVerified: user => {
               this.router.navigate(["emailVerification"]);
@@ -40,14 +41,25 @@ export class NavbarComponent {
     );
   }
 
+  public static getUserDocument(){
+    return NavbarComponent.userDocument;
+  }
+  getUsername() {
+    try {
+      return NavbarComponent.userDocument.publicName;
+    } catch (err) {
+
+    }
+  }
   getUserProfile() {
     this.firestore.listenToDocument(
       {
         name: "Getting Document",
         path: ["Users", this.auth.getAuth().currentUser?.uid!],
         onUpdate: (result) => {
-          this.userDocument = <UserDocument>result.data();
+          NavbarComponent.userDocument = <UserDocument>result.data();
           this.userHasProfile = result.exists;
+          NavbarComponent.userDocument.userId = this.auth.getAuth().currentUser?.uid!;
           if(this.userHasProfile) {
             this.router.navigate(["postfeed"]);
           }
@@ -69,4 +81,5 @@ export class NavbarComponent {
 export interface UserDocument {
   publicName: string;
   description: string;
+  userId: string;
 }

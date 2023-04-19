@@ -7,13 +7,16 @@ import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
 import { PostfeedComponent } from './postfeed/postfeed.component';
 import { EmailVerificationComponent } from './email-verification/email-verification.component';
+import { UserprofilepageComponent } from './userprofilepage/userprofilepage.component';
 
 const routes: Routes = [
 {path: '', component:HomeComponent},
 {path: 'recipes', component:RecipesComponent},
 {path: "postfeed", component: PostfeedComponent},
 {path: 'login', component:LoginComponent},
-{path: "emailVerification", component:EmailVerificationComponent}
+{path: "emailVerification", component:EmailVerificationComponent},
+{path: "userprofile", component:UserprofilepageComponent}
+
 ];
 
 @NgModule({
