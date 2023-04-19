@@ -17,6 +17,7 @@ export class PostComponent implements OnInit {
   creatorDescription!: string;
   color!: string;
   like: boolean = false;
+  likeCount = 0;
   firestore = new FirebaseTSFirestore();
   constructor(private dialog: MatDialog){
   
@@ -37,10 +38,11 @@ export class PostComponent implements OnInit {
     this.like = !this.like;
     if(this.like == true){
       this.color = "accent"
-
+      this.likeCount += 1;
     }
     else{
       this.color = "primary"
+      this.likeCount -= 1;
     }
   }
 
@@ -52,10 +54,12 @@ export class PostComponent implements OnInit {
           let userDocument = result.data();
           this.creatorName = userDocument?.['publicName'];
           this.creatorDescription = userDocument?.['description'];
+          this.likeCount = userDocument?.['userLikeCount']
         }
       }
     );
   }
+
   get CreatorName(){
     return this.creatorName;
   }
