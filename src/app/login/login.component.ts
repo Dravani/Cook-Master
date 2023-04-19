@@ -77,7 +77,7 @@ export class LoginComponent {
             registerConfirmPassword.value = "";
           },
           onFail: (err) => {
-            alert("Failed to create account.");
+            alert("Password or Email invalid.");
           }
         }
       );

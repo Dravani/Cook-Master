@@ -33,6 +33,13 @@ export class UserprofilepageComponent implements OnInit {
 
     }
   }
+  getDes() {
+    try {
+      return UserprofilepageComponent.userDocument.description;
+    } catch (err) {
+
+    }
+  }
   getUserProfile() {
     this.firestore.listenToDocument(
       {
@@ -42,7 +49,6 @@ export class UserprofilepageComponent implements OnInit {
         onUpdate: (result) => {
           UserprofilepageComponent.userDocument = <UserDocument>result.data();
           UserprofilepageComponent.userDocument.userId = this.auth.getAuth().currentUser?.uid!;
-          // UserprofilepageComponent.userDocument.description = this.auth.getAuth().currentUser?.d
         }
       }
     );
