@@ -1,7 +1,13 @@
 Tasks Completed: Users can like posts, users can comment on posts, users can leave feedback that goes to database, users can create a user profile
 
 API Documentation:
+Ingredient API:
+	Method Type: GET
 
+	Request: The api sends a request to rapid API using the unique user key, which then rapid API send a request to the web server to retrieve the information
+
+	Response: The user inputs a query words then the API will return all searches that match the query word. For this particular API you get the nutrional value of user inputted ingredient.
+  
 Recipe API:
 	Method Type: GET
 
