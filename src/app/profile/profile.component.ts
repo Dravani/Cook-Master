@@ -18,12 +18,14 @@ export class ProfileComponent {
   onContinueClick(nameInput: HTMLInputElement, descriptionInput: HTMLTextAreaElement) {
     let name = nameInput.value;
     let description = descriptionInput.value;
+    let likeCount = 0;
     this.firestore.create(
       {
         path: ["Users", this.auth.getAuth().currentUser?.uid!],
         data: {
           publicName: name,
-          description: description
+          description: description,
+          userlikeCount: likeCount
         },
         onComplete: (docId) => {
           alert("Profile Created!");
