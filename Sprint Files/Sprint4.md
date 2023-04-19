@@ -1,4 +1,4 @@
-Tasks Completed: Users can like posts, users can comment on posts, users can leave feedback that goes to database, users can create a user profile
+Tasks Completed: Users can like posts, users can comment on posts, users can leave feedback that goes to database, users can create a user profile, users can't post or give feedback if not logged in
 
 API Documentation:
 Ingredient API:
