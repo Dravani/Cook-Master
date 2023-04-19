@@ -79,3 +79,11 @@ p{
     font-weight: 600;
     text-transform: uppercase;
 }
+
+#post-feed{
+    max-width: 500px;
+    margin-top: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 32px;
+}

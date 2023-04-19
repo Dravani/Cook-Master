@@ -21,4 +21,10 @@
             </div>
              <div class="btn">Follow</div>
         </div>
+</div>
+
+<div class="banner">
+    <div id="post-feed">
+        <app-post *ngFor="let post of posts" [postData]="post"></app-post>
     </div>
+</div>
